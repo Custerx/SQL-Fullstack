@@ -21,6 +21,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CurrentDepartment.Dep_name)
         </th>
         <th>
@@ -40,28 +43,31 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentDepartment.Dep_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Emp_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Job_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hire_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentDepartment.Dep_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Emp_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hire_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
     }
 
 </table>

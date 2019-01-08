@@ -13,14 +13,18 @@ namespace AppX.Controllers
     public class EmployeesController : Controller
     {
         private EmployeeDBContext db = new EmployeeDBContext();
+        private readonly Models.Queries.QueryFactory m_QF;
+
+        public EmployeesController()
+        {
+            m_QF = new Models.Queries.QueryFactory();
+        }
 
         public ActionResult Index(string department, string searchString)
         {
             var depLst = new List<string>();
 
-            var DepQuery = from d in db.Departmentxes
-                           orderby d.Dep_name
-                           select d.Dep_name;
+            var DepQuery = m_QF.DepNames();
 
             depLst.AddRange(DepQuery.Distinct());
             ViewBag.department = new SelectList(depLst);

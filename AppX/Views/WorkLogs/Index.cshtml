@@ -9,6 +9,14 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("Index", "WorkLogs", FormMethod.Get))
+{
+    <p>
+        ID: @Html.TextBox("SearchString") <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -23,23 +31,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentEmployee.Emp_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_time)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Wl_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Wl_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Wl_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentEmployee.Emp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_time)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Wl_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Wl_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Wl_id })
+            </td>
+        </tr>
+    }
 
 </table>

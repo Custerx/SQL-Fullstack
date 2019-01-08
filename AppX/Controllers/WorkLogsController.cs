@@ -15,9 +15,18 @@ namespace AppX.Controllers
         private EmployeeDBContext db = new EmployeeDBContext();
 
         // GET: WorkLogs
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var workLogs = db.WorkLogs.Include(w => w.CurrentEmployee);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                if (Int32.TryParse(searchString, out int id))
+                {
+                    workLogs = workLogs.Where(s => s.Emp_id.Equals(id));
+                }
+            }
+
             return View(workLogs.ToList());
         }
 

@@ -13,11 +13,35 @@ namespace AppX.Controllers
     public class AddressesController : Controller
     {
         private EmployeeDBContext db = new EmployeeDBContext();
+        private readonly Models.Queries.QueryFactory m_QF;
+
+        public AddressesController()
+        {
+            m_QF = new Models.Queries.QueryFactory();
+        }
 
         // GET: Addresses
-        public ActionResult Index()
+        public ActionResult Index(string department, string searchString)
         {
+            var depLst = new List<string>();
+
+            var DepQuery = m_QF.DepNames();
+
+            depLst.AddRange(DepQuery.Distinct());
+            ViewBag.department = new SelectList(depLst);
+
             var addresses = db.Addresses.Include(a => a.Employee);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                addresses = addresses.Where(s => s.Employee.Emp_name.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(department))
+            {
+                addresses = addresses.Where(x => x.Employee.CurrentDepartment.Dep_name.Equals(department));
+            }
+            
             return View(addresses.ToList());
         }
 
