@@ -9,7 +9,12 @@ namespace AppX.Controllers
 {
     public class HomeController : Controller
     {
-        private EmployeeDBContext db = new EmployeeDBContext();
+        private readonly Models.Queries.QueryFactory m_QF;
+
+        public HomeController()
+        {
+            m_QF = new Models.Queries.QueryFactory();
+        }
 
         public ActionResult Index()
         {
@@ -31,27 +36,26 @@ namespace AppX.Controllers
             return RedirectToAction("Index", "Departmentxes", new { area = "" });
         }
 
-        public ActionResult AllTables()
+        public ActionResult AllTables(string department, string searchString)
         {
-            var Query = (from ep in db.Employees
-                        join e in db.Addresses on ep.Id equals e.Emp_id
-                        join t in db.WorkLogs on e.Emp_id equals t.Emp_id
-                        select new AllTables
-                        {
-                            Id = ep.Id,
-                            Emp_name = ep.Emp_name,
-                            Job_name = ep.Job_name,
-                            Hire_date = ep.Hire_date,
-                            Salary = ep.Salary,
-                            Dep_name = ep.CurrentDepartment.Dep_name,
-                            Dep_location = ep.CurrentDepartment.Dep_location,
-                            Street = e.Street,
-                            Zip = e.Zip,
-                            City = e.City,
-                            Wl_id = t.Wl_id,
-                            Start_time = t.Start_time,
-                            End_time = t.End_time,   
-                        });
+            var depLst = new List<string>();
+
+            var DepQuery = m_QF.DepNames();
+
+            depLst.AddRange(DepQuery.Distinct());
+            ViewBag.department = new SelectList(depLst);
+
+            var Query = m_QF.JoinAllTables();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Query = Query.Where(s => s.Emp_name.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(department))
+            {
+                Query = Query.Where(x => x.Dep_name.Equals(department));
+            }
 
             return View(Query.ToList());
         }

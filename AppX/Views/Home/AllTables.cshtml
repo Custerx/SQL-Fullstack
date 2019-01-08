@@ -4,6 +4,16 @@
     ViewBag.Title = "All tables joined";
 }
 
+<h2>All Tables Joined</h2>
+
+@using (Html.BeginForm("AllTables", "Home", FormMethod.Get))
+{
+    <p>
+        Department: @Html.DropDownList("department", "All")
+        Employee: @Html.TextBox("SearchString") <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -49,47 +59,47 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Emp_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Job_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hire_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Salary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dep_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dep_location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wl_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_time)
-        </td>
-    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hire_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dep_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dep_location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wl_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_time)
+            </td>
+        </tr>
     }
 
 </table>

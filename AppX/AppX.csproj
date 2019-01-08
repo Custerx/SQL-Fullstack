@@ -240,6 +240,9 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AllTables.cs" />
     <Compile Include="Models\Departmentx.cs" />
+    <Compile Include="Models\Queries\QueryFactory.cs" />
+    <Compile Include="Models\Queries\DepNames.cs" />
+    <Compile Include="Models\Queries\JoinAllTables.cs" />
     <Compile Include="Models\WorkLog.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
