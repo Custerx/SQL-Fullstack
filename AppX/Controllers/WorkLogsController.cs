@@ -57,7 +57,7 @@ namespace AppX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Wl_id,Start_time,End_time,Emp_id")] WorkLog workLog)
+        public ActionResult Create([Bind(Include = "Wl_id,Start_Date,Start_time,End_Date,End_time,Emp_id")] WorkLog workLog)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace AppX.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Wl_id,Start_time,End_time,Emp_id")] WorkLog workLog)
+        public ActionResult Edit([Bind(Include = "Wl_id,Start_Date,Start_time,End_Date,End_time,Emp_id")] WorkLog workLog)
         {
             if (ModelState.IsValid)
             {

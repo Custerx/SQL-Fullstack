@@ -236,6 +236,50 @@
     <Compile Include="Migrations\201901061339075_DepartmentUpd2.Designer.cs">
       <DependentUpon>201901061339075_DepartmentUpd2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901081554420_displayformatUpd.cs" />
+    <Compile Include="Migrations\201901081554420_displayformatUpd.Designer.cs">
+      <DependentUpon>201901081554420_displayformatUpd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081603463_displayformatUpd1.cs" />
+    <Compile Include="Migrations\201901081603463_displayformatUpd1.Designer.cs">
+      <DependentUpon>201901081603463_displayformatUpd1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081608492_displayformatUpd2.cs" />
+    <Compile Include="Migrations\201901081608492_displayformatUpd2.Designer.cs">
+      <DependentUpon>201901081608492_displayformatUpd2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081646044_displayformatUpd3.cs" />
+    <Compile Include="Migrations\201901081646044_displayformatUpd3.Designer.cs">
+      <DependentUpon>201901081646044_displayformatUpd3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081649141_displayformatUpd4.cs" />
+    <Compile Include="Migrations\201901081649141_displayformatUpd4.Designer.cs">
+      <DependentUpon>201901081649141_displayformatUpd4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081654430_displayformatUpd5.cs" />
+    <Compile Include="Migrations\201901081654430_displayformatUpd5.Designer.cs">
+      <DependentUpon>201901081654430_displayformatUpd5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081704266_displayformatUpd6.cs" />
+    <Compile Include="Migrations\201901081704266_displayformatUpd6.Designer.cs">
+      <DependentUpon>201901081704266_displayformatUpd6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081712318_displayformatUpd7.cs" />
+    <Compile Include="Migrations\201901081712318_displayformatUpd7.Designer.cs">
+      <DependentUpon>201901081712318_displayformatUpd7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081722534_displayformatUpd8.cs" />
+    <Compile Include="Migrations\201901081722534_displayformatUpd8.Designer.cs">
+      <DependentUpon>201901081722534_displayformatUpd8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081724150_displayformatUpd9.cs" />
+    <Compile Include="Migrations\201901081724150_displayformatUpd9.Designer.cs">
+      <DependentUpon>201901081724150_displayformatUpd9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081728242_displayformatUpd10.cs" />
+    <Compile Include="Migrations\201901081728242_displayformatUpd10.Designer.cs">
+      <DependentUpon>201901081728242_displayformatUpd10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AllTables.cs" />
@@ -343,6 +387,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901061339075_DepartmentUpd2.resx">
       <DependentUpon>201901061339075_DepartmentUpd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081554420_displayformatUpd.resx">
+      <DependentUpon>201901081554420_displayformatUpd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081603463_displayformatUpd1.resx">
+      <DependentUpon>201901081603463_displayformatUpd1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081608492_displayformatUpd2.resx">
+      <DependentUpon>201901081608492_displayformatUpd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081646044_displayformatUpd3.resx">
+      <DependentUpon>201901081646044_displayformatUpd3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081649141_displayformatUpd4.resx">
+      <DependentUpon>201901081649141_displayformatUpd4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081654430_displayformatUpd5.resx">
+      <DependentUpon>201901081654430_displayformatUpd5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081704266_displayformatUpd6.resx">
+      <DependentUpon>201901081704266_displayformatUpd6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081712318_displayformatUpd7.resx">
+      <DependentUpon>201901081712318_displayformatUpd7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081722534_displayformatUpd8.resx">
+      <DependentUpon>201901081722534_displayformatUpd8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081724150_displayformatUpd9.resx">
+      <DependentUpon>201901081724150_displayformatUpd9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081728242_displayformatUpd10.resx">
+      <DependentUpon>201901081728242_displayformatUpd10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
