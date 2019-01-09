@@ -12,9 +12,10 @@
 
 @using (Html.BeginForm("Index", "WorkLogs", FormMethod.Get))
 {
-    <p>
-        ID: @Html.TextBox("SearchString") <input type="submit" value="Search" />
-    </p>
+<p>
+    Dates: @Html.DropDownList("dates", "All")
+    ID: @Html.TextBox("SearchString") <input type="submit" value="Search" />
+</p>
 }
 
 <table class="table">

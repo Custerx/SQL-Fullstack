@@ -13,10 +13,23 @@ namespace AppX.Controllers
     public class WorkLogsController : Controller
     {
         private EmployeeDBContext db = new EmployeeDBContext();
+        private readonly Models.Queries.QueryFactory m_QF;
+
+        public WorkLogsController()
+        {
+            m_QF = new Models.Queries.QueryFactory();
+        }
 
         // GET: WorkLogs
-        public ActionResult Index(string searchString)
-        {
+        public ActionResult Index(DateTime? dates = null, string searchString = null)
+        {          
+            var depLst = new List<DateTime>();
+
+            var DepQuery = m_QF.WorkLogDates();
+
+            depLst.AddRange(DepQuery.Distinct());
+            ViewBag.dates = new SelectList(depLst);
+            
             var workLogs = db.WorkLogs.Include(w => w.CurrentEmployee);
 
             if (!String.IsNullOrEmpty(searchString))
@@ -25,6 +38,11 @@ namespace AppX.Controllers
                 {
                     workLogs = workLogs.Where(s => s.Emp_id.Equals(id));
                 }
+            }
+
+            if (dates != null)
+            {
+                workLogs = workLogs.Where(x => x.Start_Date.Equals(dates.Value));
             }
 
             return View(workLogs.ToList());

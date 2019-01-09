@@ -284,6 +284,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AllTables.cs" />
     <Compile Include="Models\Departmentx.cs" />
+    <Compile Include="Models\Queries\SelectWorkLogDates.cs" />
     <Compile Include="Models\Queries\QueryFactory.cs" />
     <Compile Include="Models\Queries\DepNames.cs" />
     <Compile Include="Models\Queries\JoinAllTables.cs" />
