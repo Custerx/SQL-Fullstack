@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AppX.Models;
+using Microsoft.Extensions.Logging;
 
 namespace AppX.Controllers
 {
@@ -14,6 +15,20 @@ namespace AppX.Controllers
     {
         private EmployeeDBContext db = new EmployeeDBContext();
         private readonly Models.Queries.QueryFactory m_QF;
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            LoggerFactory loggerFactory = new LoggerFactory();
+            ILogger logger = loggerFactory.CreateLogger("LogErrorAddress");
+
+            filterContext.ExceptionHandled = true;
+
+            //Log the error!!
+            logger.LogError(filterContext.Exception.ToString());
+
+            //Redirect
+            filterContext.Result = RedirectToAction("Index", "ErrorHandler");
+        }
 
         public AddressesController()
         {

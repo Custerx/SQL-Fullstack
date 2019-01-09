@@ -347,6 +347,7 @@
     <Content Include="Views\WorkLogs\Details.cshtml" />
     <Content Include="Views\WorkLogs\Edit.cshtml" />
     <Content Include="Views\WorkLogs\Index.cshtml" />
+    <Content Include="Views\ErrorHandler\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
