@@ -79,9 +79,17 @@ namespace AppX.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.WorkLogs.Add(workLog);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.WorkLogs.Add(workLog);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.exception = ex.Message;
+                    return View("~/Views/ErrorHandler/Index.cshtml");
+                }
             }
 
             ViewBag.Emp_id = new SelectList(db.Employees, "Id", "Emp_name", workLog.Emp_id);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,15 @@ namespace AppX
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_Error()
+        {
+            LoggerFactory loggerFactory = new LoggerFactory();
+            ILogger logger = loggerFactory.CreateLogger("LogErrorApp");
+            var ex = Server.GetLastError();
+            //log the error!
+            logger.LogError(ex.ToString());
         }
     }
 }

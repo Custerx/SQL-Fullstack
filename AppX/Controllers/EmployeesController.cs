@@ -75,9 +75,17 @@ namespace AppX.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Employees.Add(employee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Employees.Add(employee);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.exception = ex.Message;
+                    return View("~/Views/ErrorHandler/Index.cshtml");
+                }
             }
 
             ViewBag.Dep_id = new SelectList(db.Departmentxes, "Dep_id", "Dep_name", employee.Dep_id);

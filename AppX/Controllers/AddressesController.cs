@@ -13,9 +13,10 @@ namespace AppX.Controllers
 {
     public class AddressesController : Controller
     {
-        private EmployeeDBContext db = new EmployeeDBContext();
+        private EmployeeDBContext db;
         private readonly Models.Queries.QueryFactory m_QF;
 
+        // https://docs.microsoft.com/en-us/aspnet/web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
         protected override void OnException(ExceptionContext filterContext)
         {
             LoggerFactory loggerFactory = new LoggerFactory();
@@ -33,6 +34,7 @@ namespace AppX.Controllers
         public AddressesController()
         {
             m_QF = new Models.Queries.QueryFactory();
+            db = new EmployeeDBContext();
         }
 
         // GET: Addresses
@@ -91,9 +93,17 @@ namespace AppX.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Addresses.Add(address);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Addresses.Add(address);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.exception = ex.Message;
+                    return View("~/Views/ErrorHandler/Index.cshtml");
+                }
             }
 
             ViewBag.Emp_id = new SelectList(db.Employees, "Id", "Emp_name", address.Emp_id);

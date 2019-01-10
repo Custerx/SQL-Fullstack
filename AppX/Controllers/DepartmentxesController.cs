@@ -50,9 +50,17 @@ namespace AppX.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Departmentxes.Add(departmentx);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Departmentxes.Add(departmentx);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.exception = ex.Message;
+                    return View("~/Views/ErrorHandler/Index.cshtml");
+                }
             }
 
             return View(departmentx);
